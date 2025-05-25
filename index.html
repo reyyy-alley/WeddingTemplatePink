@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah & John's Wedding</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP for Smooth Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Dark/Light Mode Toggle -->
+  <button id="themeToggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Audio Player -->
+  <div class="audio-control">
+    <button id="playMusic" aria-label="Play music">
+      <i class="fas fa-music"></i>
+    </button>
+    <audio id="bgMusic" loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Floating Hearts Background -->
+  <div class="hearts-background"></div>
+
+  <!-- Hero Section with Parallax -->
+  <section class="hero">
+    <div class="parallax-bg"></div>
+    <div class="hero-content">
+      <h1 class="couple-name">Sarah <span class="amp">&</span> John</h1>
+      <p class="wedding-date">June 15, 2025</p>
+      <div class="countdown-container">
+        <div class="countdown-box">
+          <span id="days">00</span>
+          <small>Days</small>
+        </div>
+        <div class="countdown-box">
+          <span id="hours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="countdown-box">
+          <span id="minutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="countdown-box">
+          <span id="seconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+      <button class="cta-button" id="exploreBtn">Scroll to Explore <i class="fas fa-arrow-down"></i></button>
+    </div>
+  </section>
+
+  <!-- Our Story (3D Flip Cards) -->
+  <section class="story">
+    <h2 class="section-title">Our Love Story</h2>
+    <div class="story-cards">
+      <div class="story-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url(galery/Fisrt\ Meet.jpg)">
+            <h3>First Meet</h3>
+          </div>
+          <div class="card-back">
+            <p>Kita pertamakali bertemu pada 12 oktober 2023 saat sedang bermain platform Ome Tv yang akhirnya menjodohkan kami</p>
+          </div>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url(galery/Prewed.jpg)">
+            <h3>Prewed</h3>
+          </div>
+          <div class="card-back">
+            <p>John proposed under the stars on a beach in Bali.</p>
+          </div>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url(galery/wedding.jpg)">
+            <h3>Wedding</h3>
+          </div>
+          <div class="card-back">
+            <p>Months of planning led to this beautiful day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wedding Details -->
+  <section class="details">
+    <h2 class="section-title">Wedding Details</h2>
+    <div class="detail-cards">
+      <div class="detail-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Date & Time</h3>
+        <p>June 15, 2025</p>
+        <p>3:00 PM - 11:00 PM</p>
+      </div>
+      <div class="detail-card"><a href="https://www.google.com/maps/place/Kec.+Peterongan,+Kabupaten+Jombang,+Jawa+Timur/@-7.5141255,112.2374022,13z/data=!3m1!4b1!4m6!3m5!1s0x2e781519c067dda7:0x4027a76e3531000!8m2!3d-7.5386923!4d112.276231!16s%2Fg%2F11b_2tq063?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Venue</h3>
+        <p>The Grand Ballroom</p>
+        <p>123 Luxury Avenue, Jakarta</p>
+		</a>
+      </div>
+      <div class="detail-card">
+        <i class="fas fa-bell"></i>
+        <h3>RSVP</h3>
+        <p>Confirm before May 1, 2025</p>
+        <button class="rsvp-button" id="openRsvp">Confirm Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery (Slider) -->
+  <section class="gallery">
+    <h2 class="section-title">Gallery</h2>
+    <div class="gallery-slider">
+      <div class="slider-container">
+        <div class="slide active" style="background-image: url(galery/reir/DSC_8166.jpg)"></div>
+        <div class="slide" style="background-image: url(galery/reir/DSC_8263.jpg)"></div>
+        <div class="slide" style="background-image: url('galery/reir/DSC_8299.jpg')"></div>
+      </div>
+      <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- RSVP Modal -->
+  <div class="modal" id="rsvpModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeRsvp">&times;</span>
+      <h2>RSVP Confirmation</h2>
+      <form id="rsvpForm">
+        <div class="form-group">
+          <input type="text" id="guestName" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="guestEmail" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <select id="guestCount" required>
+            <option value="" disabled selected>Number of Guests</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+          </select>
+        </div>
+        <div class="form-group radio-group">
+          <label>
+            <input type="radio" name="attendance" value="yes" checked>
+            <span>Will Attend</span>
+          </label>
+          <label>
+            <input type="radio" name="attendance" value="no">
+            <span>Can't Attend</span>
+          </label>
+        </div>
+        <button type="submit" class="submit-button">Submit RSVP</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confetti Effect on Submission -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
