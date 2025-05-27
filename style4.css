@@ -1,0 +1,1025 @@
+/* --- Variabel CSS & Reset Dasar --- */
+:root {
+    --primary-color: #9370db; /* Lavender */
+    --secondary-color: #fce4ec; /* Blush Pink Lembut */
+    --accent-color: #e0b0ff; /* Lavender Lebih Terang/Aksen */
+    --text-dark: #555; /* Abu-abu Tua */
+    --text-light: #fff; /* Putih */
+    --bg-cream: #fff8f5; /* Krem Sangat Lembut */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --transition-speed: 0.4s ease-in-out;
+    --max-width: 1200px;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.7;
+    background-color: var(--secondary-color); /* Blush Pink Lembut */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* Untuk teks lebih halus */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Typografi Dasar --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 400; /* Lebih lembut */
+}
+
+h1 { font-size: clamp(3rem, 7vw, 5.5rem); text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); text-align: center; }
+h3 { font-size: clamp(1.6rem, 4vw, 2.8rem); }
+
+p {
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    line-height: 1.8;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Utilitas Umum --- */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.button-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.9rem 2rem;
+    border-radius: 25px; /* Lebih bulat */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: none; /* Pastikan tidak ada border default */
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+.button-link:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.floral-divider {
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 1.5rem auto 3rem auto;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+/* --- Preloader / Intro Animasi --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color); /* Blush Pink */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1.8s ease-out;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-animation {
+    text-align: center;
+}
+
+.intro-animation h1 {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    color: var(--primary-color);
+    opacity: 0;
+    animation: fadeInDown 1.8s ease-out 0.5s forwards;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.intro-animation p {
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    color: var(--text-dark);
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeInUp 1.8s ease-out 1s forwards;
+}
+
+/* --- Header & Navigasi --- */
+.main-header {
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 248, 245, 0.97); /* Krem lembut transparan */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    z-index: 1000;
+    padding: 0.8rem 0;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.main-header.scrolled {
+    padding: 0.4rem 0;
+    background-color: rgba(255, 248, 245, 0.99);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.8px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2.2rem;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transition: width var(--transition-speed);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.language-switcher button {
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.4rem 0.8rem;
+    margin-left: 0.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.language-switcher button.active,
+.language-switcher button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.hamburger-menu {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+/* --- Hero Section (Beranda) --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(252, 228, 236, 0.7), rgba(252, 228, 236, 0.7)), url('../img/hero-background.jpg') no-repeat center center/cover;
+    /* Ganti 'hero-background.jpg' dengan gambar hero Anda */
+    position: relative;
+    color: var(--text-dark); /* Menggunakan warna gelap untuk kontras dengan overlay blush pink */
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.hero-content h2 {
+    color: var(--text-dark); /* Ubah warna untuk kontras yang lebih baik */
+    font-weight: normal;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.hero-content h1 {
+    color: var(--primary-color);
+    font-size: clamp(4.5rem, 11vw, 8.5rem);
+    line-height: 1;
+    margin-bottom: 1.8rem;
+    text-transform: capitalize;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Musik Toggle */
+.music-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(147, 112, 219, 0.7); /* Transparan Lavender */
+    color: var(--text-light);
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: background-color var(--transition-speed);
+}
+
+.music-button:hover {
+    background-color: rgba(147, 112, 219, 0.9);
+}
+
+/* --- Section Umum --- */
+section {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--secondary-color); /* Blush Pink */
+}
+
+section:nth-of-type(even) {
+    background-color: var(--bg-cream); /* Krem lembut */
+    color: var(--text-dark);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+/* --- Kisah Kami (Our Story) --- */
+.story-section .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.story-section .timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 0;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: var(--bg-cream); /* Krem */
+    border: 4px solid var(--accent-color); /* Lavender terang */
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item i.fas {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 60px; /* Ruang untuk lingkaran */
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 60px; /* Ruang untuk lingkaran */
+}
+
+.timeline-item.right::after {
+    left: -16px;
+}
+.timeline-item.left::after {
+    right: -16px;
+}
+
+
+.timeline-item .content {
+    padding: 25px 30px;
+    background-color: var(--text-light); /* Putih */
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.timeline-item .content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- Detail Acara --- */
+.details-section .event-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.event-block {
+    background-color: var(--bg-cream); /* Krem lembut */
+    padding: 2.8rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(147, 112, 219, 0.1); /* Border tipis lavender */
+}
+
+.event-block:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.event-block h3 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-block p {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+}
+
+.event-block .button-link {
+    margin-top: 1.5rem;
+    margin-right: 0.5rem; /* Untuk memisahkan tombol */
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+}
+
+.event-block i.fas {
+    margin-right: 8px;
+}
+
+.countdown-timer {
+    text-align: center;
+    background-color: var(--primary-color); /* Lavender */
+    color: var(--text-light);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.countdown-timer h3 {
+    color: var(--accent-color); /* Lavender terang */
+    font-size: 2.4rem;
+    margin-bottom: 1.8rem;
+    font-weight: 700; /* Lebih tebal untuk countdown */
+}
+
+.timer-display {
+    font-family: 'Lora', serif; /* Menggunakan font body untuk angka agar serasi */
+    font-size: clamp(2.8rem, 7vw, 4.8rem);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin-top: 1.5rem;
+}
+
+.timer-display div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255,255,255,0.15); /* Putih transparan */
+    padding: 1.2rem 1.8rem;
+    border-radius: 10px;
+    min-width: 120px;
+}
+
+.timer-display .value {
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    color: var(--text-light);
+}
+
+.timer-display .label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+}
+
+/* --- Galeri --- */
+.gallery-section {
+    background-color: var(--secondary-color); /* Blush Pink */
+}
+
+.gallery-section .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 3.5rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.image-grid img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.video-section {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.video-section h3 {
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.video-section iframe {
+    max-width: 800px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: none;
+}
+
+/* --- RSVP & Buku Tamu (Formulir Umum) --- */
+.rsvp-section form,
+.guestbook-section form {
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    background-color: var(--bg-cream); /* Krem lembut */
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(147, 112, 219, 0.1); /* Border tipis lavender */
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.05rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--accent-color); /* Lavender terang */
+    border-radius: 25px; /* Lebih bulat */
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    background-color: var(--text-light);
+    color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(147, 112, 219, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    border-radius: 15px; /* Sedikit berbeda untuk textarea */
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 25px; /* Lebih bulat */
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.submit-button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.message {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0; /* Dimulai tersembunyi */
+    transition: opacity 0.5s ease-out;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Buku Tamu Pesan */
+.guest-messages {
+    max-width: 700px;
+    margin: 2rem auto 0 auto;
+    background-color: var(--bg-cream);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(147, 112, 219, 0.1);
+}
+
+.guest-messages h3 {
+    margin-bottom: 1.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 700;
+}
+
+.guest-message-item {
+    background-color: var(--secondary-color); /* Blush Pink */
+    border-left: 5px solid var(--accent-color); /* Lavender terang */
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.guest-message-item:hover {
+    transform: translateX(5px);
+}
+
+.guest-message-item .guest-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+}
+
+.guest-message-item .guest-text {
+    font-style: italic;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* --- Hadiah --- */
+.gifts-section .gift-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.gift-option {
+    background-color: var(--bg-cream); /* Krem lembut */
+    padding: 2.8rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(147, 112, 219, 0.1);
+}
+
+.gift-option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.gift-option i.fas {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.gift-option h3 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.gift-option p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- FAQ --- */
+.faq-section {
+    background-color: var(--secondary-color); /* Blush Pink */
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background-color: var(--bg-cream); /* Krem lembut */
+    border-radius: 15px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid rgba(147, 112, 219, 0.1);
+}
+
+.accordion-header {
+    width: 100%;
+    background-color: var(--primary-color); /* Lavender */
+    color: var(--text-light);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color var(--transition-speed);
+}
+
+.accordion-header:hover {
+    background-color: var(--accent-color);
+}
+
+.accordion-header .icon {
+    font-size: 1.3rem;
+    transition: transform var(--transition-speed);
+}
+
+.accordion-header.active .icon {
+    transform: rotate(180deg); /* Panah berputar saat aktif */
+}
+
+.accordion-content {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-out, padding 0.6s ease-out;
+    background-color: var(--text-light); /* Putih */
+}
+
+.accordion-content.active {
+    max-height: 500px; /* Cukup besar untuk menampung konten */
+    padding: 1.5rem;
+}
+
+.accordion-content p {
+    margin-bottom: 0;
+    color: #666;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--primary-color); /* Lavender */
+    color: var(--text-light);
+    padding: 3.5rem 0;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.main-footer p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.main-footer .social-links a {
+    color: var(--text-light);
+    margin: 0 1rem;
+    font-size: 1.3rem;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.main-footer .social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px) scale(1.1);
+}
+
+.main-footer i.fas.fa-heart {
+    color: #ff69b4; /* Pink cerah untuk hati */
+    margin: 0 5px;
+}
+
+/* --- Animasi Kunci (Keyframes) --- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-15px); }
+    60% { transform: translateX(-50%) translateY(-7px); }
+}
+
+/* --- Media Queries untuk Responsif --- */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none; /* Sembunyikan navigasi utama */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 248, 245, 0.98);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        border-radius: 0 0 10px 10px;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 0.8rem 0;
+    }
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+    .hamburger-menu {
+        display: block; /* Tampilkan hamburger di mobile */
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+    .language-switcher {
+        position: static;
+        margin-left: 1rem;
+    }
+
+    .story-section .timeline::after {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 15px;
+        left: 0;
+    }
+    .timeline-item::after {
+        left: 13px;
+    }
+    .timeline-item.right::after {
+        left: 13px;
+    }
+    .timeline-item .content {
+        padding: 20px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: clamp(3rem, 10vw, 5rem); }
+    h2 { font-size: clamp(2rem, 8vw, 3.5rem); }
+    h3 { font-size: clamp(1.4rem, 6vw, 2.5rem); }
+
+    .hero-section {
+        padding: 80px 1rem;
+    }
+    .hero-content h2 {
+        font-size: clamp(1.4rem, 4vw, 2rem);
+    }
+    .hero-content p {
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    }
+
+    .event-block {
+        padding: 2rem;
+    }
+    .countdown-timer .timer-display {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .countdown-timer .timer-display div {
+        min-width: 90px;
+        padding: 0.8rem 1rem;
+    }
+    .countdown-timer .timer-display .value {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    .countdown-timer .timer-display .label {
+        font-size: 0.8rem;
+    }
+
+    .rsvp-section form,
+    .guestbook-section form,
+    .guest-messages,
+    .faq-accordion {
+        padding: 2rem 1.5rem;
+    }
+
+    .gift-option {
+        padding: 2rem;
+    }
+    .gift-option i.fas {
+        font-size: 3rem;
+    }
+    .gift-option h3 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 2rem 0.8rem;
+    }
+    .main-header {
+        padding: 0.5rem 0;
+    }
+    .logo {
+        font-size: 1.6rem;
+    }
+    .hamburger-menu {
+        font-size: 1.5rem;
+    }
+    .music-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    .cta-button, .submit-button {
+        padding: 1rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .guest-message-item {
+        padding: 1rem;
+    }
+
+    .accordion-header {
+        font-size: 1.1rem;
+        padding: 1.2rem;
+    }
+    .accordion-content {
+        padding: 1.2rem;
+    }
+}

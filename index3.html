@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan [Nama Mempelai Pria] & [Nama Mempelai Wanita]</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/themes/theme-gold.css" id="theme-link"> <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
+</head>
+<body>
+
+    <div id="intro-page" class="intro-page active">
+        <div class="intro-content">
+            <h1 class="intro-title">Undangan Pernikahan</h1>
+            <p class="intro-names">[Nama Mempelai Pria] & [Nama Mempelai Wanita]</p>
+            <p class="intro-date">[Tanggal Pernikahan]</p>
+            <button id="open-invitation-btn" class="btn-open">Buka Undangan</button>
+            <div class="audio-control">
+                <audio id="background-music" src="assets/audio/wedding-song.mp3" loop></audio>
+                <button id="toggle-music-btn" class="music-btn"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content" class="main-content">
+        <header id="navbar">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#event">The Event</a></li>
+                    <li><a href="#rsvp">RSVP</a></li>
+                    <li><a href="#guestbook">Guestbook</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="greeting">Dengan Hormat Mengundang Bapak/Ibu/Saudara/i</p>
+                <h2 class="guest-name" id="guest-name-display">Tamu Undangan</h2> <h1 class="couple-names">[Nama Mempelai Pria] & [Nama Mempelai Wanita]</h1>
+                <p class="date-location">[Tanggal Pernikahan] | [Lokasi Umum]</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item"><span id="days"></span>Hari</div>
+                    <div class="countdown-item"><span id="hours"></span>Jam</div>
+                    <div class="countdown-item"><span id="minutes"></span>Menit</div>
+                    <div class="countdown-item"><span id="seconds"></span>Detik</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="section">
+            <h2 class="section-title">Kisah Cinta Kami</h2>
+            <div class="story-timeline">
+                <div class="timeline-item">
+                    <h3>Awal Berjumpa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                    <img src="assets/img/story-1.jpg" alt="Awal Berjumpa">
+                </div>
+                <div class="timeline-item">
+                    <h3>Masa Pacaran</h3>
+                    <p>Quisquam, voluptatum. Expedita, nihil!</p>
+                    <img src="assets/img/story-2.jpg" alt="Masa Pacaran">
+                </div>
+                </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2 class="section-title">Galeri Foto Kami</h2>
+            <div class="photo-grid">
+                <img src="assets/img/gallery-1.jpg" alt="Pre-wedding 1">
+                <img src="assets/img/gallery-2.jpg" alt="Pre-wedding 2">
+                <img src="assets/img/gallery-3.jpg" alt="Pre-wedding 3">
+                </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/[ID_VIDEO_YOUTUBE]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="event" class="section">
+            <h2 class="section-title">Detail Acara</h2>
+            <div class="event-details">
+                <div class="event-card">
+                    <h3>Akad Nikah / Pemberkatan</h3>
+                    <p>Hari, Tanggal: [Hari], [Tanggal]</p>
+                    <p>Pukul: [Waktu]</p>
+                    <p>Lokasi: [Nama Tempat]</p>
+                    <p>[Alamat Lengkap]</p>
+                    <a href="https://maps.app.goo.gl/[LINK_GOOLE_MAPS]" target="_blank" class="btn">Lihat di Google Maps</a>
+                    <button class="btn add-to-calendar-btn" data-event-type="akad">Tambahkan ke Kalender</button>
+                </div>
+                <div class="event-card">
+                    <h3>Resepsi Pernikahan</h3>
+                    <p>Hari, Tanggal: [Hari], [Tanggal]</p>
+                    <p>Pukul: [Waktu]</p>
+                    <p>Lokasi: [Nama Tempat]</p>
+                    <p>[Alamat Lengkap]</p>
+                    <a href="https://maps.app.goo.gl/[LINK_GOOLE_MAPS]" target="_blank" class="btn">Lihat di Google Maps</a>
+                    <button class="btn add-to-calendar-btn" data-event-type="resepsi">Tambahkan ke Kalender</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp" class="section">
+            <h2 class="section-title">Konfirmasi Kehadiran</h2>
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group">
+                    <label for="rsvp-name">Nama Lengkap:</label>
+                    <input type="text" id="rsvp-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="rsvp-attendance">Akan Hadir:</label>
+                    <select id="rsvp-attendance" name="attendance" required>
+                        <option value="">Pilih...</option>
+                        <option value="yes">Ya, saya akan hadir</option>
+                        <option value="no">Tidak, saya tidak bisa hadir</option>
+                    </select>
+                </div>
+                <div class="form-group" id="guest-count-group" style="display: none;">
+                    <label for="rsvp-guests">Jumlah Tamu (termasuk Anda):</label>
+                    <input type="number" id="rsvp-guests" name="guests" min="1" value="1">
+                </div>
+                <button type="submit" class="btn submit-btn">Kirim Konfirmasi</button>
+            </form>
+            <div id="rsvp-message" class="rsvp-message" style="display: none;"></div>
+        </section>
+
+        <section id="guestbook" class="section">
+            <h2 class="section-title">Pesan & Doa</h2>
+            <form id="guestbook-form" class="guestbook-form">
+                <div class="form-group">
+                    <label for="guestbook-name">Nama Anda:</label>
+                    <input type="text" id="guestbook-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestbook-message">Pesan & Doa:</label>
+                    <textarea id="guestbook-message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn submit-btn">Kirim Pesan</button>
+            </form>
+            <div id="guestbook-entries" class="guestbook-entries">
+                <h3>Pesan dari Tamu Kami:</h3>
+                <div class="guestbook-entry">
+                    <p class="entry-name">Anonim</p>
+                    <p class="entry-message">Selamat menempuh hidup baru! Semoga langgeng sampai kakek nenek.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gift-registry" class="section optional-section">
+            <h2 class="section-title">Daftar Hadiah</h2>
+            <p>Kehadiran Anda adalah hadiah terbesar bagi kami. Namun, jika Anda berkeinginan untuk memberikan hadiah, Anda dapat mengirimkannya melalui:</p>
+            <div class="gift-options">
+                <div class="gift-card">
+                    <h3>Transfer Bank</h3>
+                    <p>Bank: [Nama Bank]</p>
+                    <p>No. Rekening: [Nomor Rekening]</p>
+                    <p>Atas Nama: [Nama Pemilik Rekening]</p>
+                </div>
+                <div class="gift-card">
+                    <h3>Kirim Kado Online</h3>
+                    <p>Lihat Wishlist Kami di:</p>
+                    <a href="[LINK_WISHLIST_PLATFORM]" target="_blank" class="btn">Kunjungi Wishlist</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="thank-you" class="section">
+            <h2 class="section-title">Terima Kasih</h2>
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i dapat hadir dan memberikan doa restu.</p>
+            <p class="closing-names">Hormat Kami,<br>[Nama Mempelai Pria] & [Nama Mempelai Wanita]</p>
+        </section>
+
+        <footer>
+            <p>&copy; [Tahun] [Nama Mempelai Pria] & [Nama Mempelai Wanita]. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <div class="theme-switcher-wrapper">
+        <button id="theme-switcher-btn" class="theme-switcher-btn">Ganti Tema</button>
+        <div id="theme-options" class="theme-options">
+            <button class="theme-option" data-theme="theme-gold.css" style="background-color: #D4AF37;"></button>
+            <button class="theme-option" data-theme="theme-pastel.css" style="background-color: #ADD8E6;"></button>
+            <button class="theme-option" data-theme="theme-boho.css" style="background-color: #A0C49D;"></button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="js/theme-switcher.js"></script>
+    </body>
+</html>

@@ -1,0 +1,705 @@
+/* General Body & HTML Reset */
+:root {
+    --primary-color: #D4AF37; /* Default Gold */
+    --secondary-color: #F8F8F8; /* Light background */
+    --text-color: #333;
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Open Sans', sans-serif;
+    --section-bg: #FFFFFF;
+    --border-color: #EEE;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: darken(var(--primary-color), 10%); /* Placeholder for CSS preprocessor or manual adjustment */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.section {
+    padding: 80px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: var(--section-bg);
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* --- Intro Page --- */
+.intro-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/img/intro-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+.intro-page.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-content {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 40px 60px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.intro-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.intro-names {
+    font-size: 3.5em;
+    font-family: var(--heading-font);
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.intro-date {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-open {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-open:hover {
+    background-color: darken(var(--primary-color), 15%);
+}
+
+.audio-control {
+    margin-top: 20px;
+}
+
+.music-btn {
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.music-btn::before {
+    content: '🎵'; /* Unicode for musical note */
+}
+
+.music-btn.playing::before {
+    content: '⏸️'; /* Unicode for pause */
+}
+
+/* --- Navigation Bar --- */
+#navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul li {
+    margin: 0 20px;
+}
+
+#navbar ul li a {
+    font-family: var(--heading-font);
+    font-size: 1.1em;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+#navbar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+#navbar ul li a:hover::after,
+#navbar ul li a.active::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: url('../assets/img/hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content .greeting {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.hero-content .guest-name {
+    font-family: var(--heading-font);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
+}
+
+.hero-content .couple-names {
+    font-family: var(--heading-font);
+    font-size: 5em;
+    margin-bottom: 20px;
+    color: var(--primary-color); /* Emas di tengah putih */
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.hero-content .date-location {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.countdown-item {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+/* --- Story Timeline --- */
+.story-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.story-timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 20px;
+    position: relative;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.timeline-item h3 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.timeline-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Alternative timeline design for left/right */
+.timeline-item:nth-child(odd) {
+    margin-right: calc(50% + 20px); /* Adjust to leave space for line */
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: calc(50% + 20px);
+    text-align: left;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 25px;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -28px; /* Position dot on the right of odd items */
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -28px; /* Position dot on the left of even items */
+}
+
+/* --- Gallery --- */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.03);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Event Details --- */
+.event-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.event-card {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    flex: 1 1 45%; /* Allows two cards per row on larger screens */
+    min-width: 300px;
+    text-align: center;
+}
+
+.event-card h3 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn:hover {
+    background-color: darken(var(--primary-color), 15%);
+}
+
+/* --- RSVP & Guestbook Forms --- */
+.rsvp-form, .guestbook-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--body-font);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: auto;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    display: block; /* Make it full width on small screens */
+    margin: 0 auto; /* Center on larger screens */
+}
+
+.rsvp-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: green;
+    background-color: #e6ffe6;
+}
+
+.guestbook-entries {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.guestbook-entry {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.entry-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.entry-message {
+    font-style: italic;
+    color: #666;
+}
+
+/* --- Gift Registry --- */
+.gift-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gift-card {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    flex: 1 1 45%;
+    min-width: 280px;
+    text-align: center;
+}
+
+.gift-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+/* --- Theme Switcher --- */
+.theme-switcher-wrapper {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.theme-switcher-btn {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switcher-btn:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.theme-options {
+    background-color: rgba(255,255,255,0.9);
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+}
+
+.theme-options.active {
+    display: flex;
+}
+
+.theme-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 15px;
+    }
+
+    .section-title {
+        font-size: 2.2em;
+    }
+
+    .intro-content {
+        padding: 30px 40px;
+    }
+
+    .intro-names {
+        font-size: 2.5em;
+    }
+
+    #navbar ul {
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    #navbar ul li {
+        margin: 5px 10px;
+    }
+
+    .hero-content .couple-names {
+        font-size: 3.5em;
+    }
+
+    .hero-content .date-location {
+        font-size: 1.4em;
+    }
+
+    .countdown {
+        gap: 15px;
+    }
+
+    .countdown-item {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    .countdown-item span {
+        font-size: 1.4em;
+    }
+
+    .story-timeline::before {
+        left: 20px; /* Adjust line position for small screens */
+        transform: translateX(0);
+    }
+
+    .timeline-item {
+        margin: 0;
+        margin-bottom: 30px;
+        text-align: left !important; /* Force left alignment for all */
+        padding-left: 40px;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .timeline-item::after {
+        left: 12px !important; /* Adjust dot position */
+        right: auto !important;
+    }
+
+    .event-card {
+        flex: 1 1 100%;
+    }
+
+    .rsvp-form, .guestbook-form {
+        padding: 20px;
+    }
+
+    .submit-btn {
+        width: 100%; /* Full width on small screens */
+    }
+}

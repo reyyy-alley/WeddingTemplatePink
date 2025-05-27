@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan - Rina & Adi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-switcher">
+    <button id="themeBtn"><i class="fas fa-palette"></i></button>
+    <div class="theme-options">
+      <div data-theme="light">Terang</div>
+      <div data-theme="dark">Gelap</div>
+      <div data-theme="luxury">Mewah</div>
+    </div>
+  </div>
+
+  <!-- Music Toggle -->
+  <button id="musicBtn"><i class="fas fa-music"></i></button>
+  <audio id="bgMusic" loop src="music/romantic.mp3"></audio>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="couple-name">Rina <span>&</span> Adi</h1>
+        <p class="wedding-date">12 Desember 2024</p>
+        <div class="countdown">
+          <div><span id="days">00</span><small>Hari</small></div>
+          <div><span id="hours">00</span><small>Jam</small></div>
+          <div><span id="minutes">00</span><small>Menit</small></div>
+          <div><span id="seconds">00</span><small>Detik</small></div>
+        </div>
+      </div>
+      <div class="parallax-bg"></div>
+    </section>
+
+    <!-- Couple Story -->
+    <section class="story">
+      <h2>Kisah Kami</h2>
+      <div class="story-timeline">
+        <div class="timeline-item">
+          <div class="timeline-img" style="background-image: url('images/couple-1.jpg');"></div>
+          <div class="timeline-content">
+            <h3>Pertemuan Pertama</h3>
+            <p>Kami bertemu di kampus UI tahun 2018. Saat itu kami sama-sama tidak menyangka akan sampai ke pelaminan.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-img" style="background-image: url('images/proposal.jpg');"></div>
+          <div class="timeline-content">
+            <h3>Lamaran</h3>
+            <p>Adi melamar Rina di atas bukit dengan view sunset yang indah. Saat itu tanggal 14 Februari 2023.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding Details -->
+    <section class="details">
+      <h2>Detail Acara</h2>
+      <div class="detail-cards">
+        <div class="card">
+          <i class="fas fa-calendar-day"></i>
+          <h3>Akad Nikah</h3>
+          <p>Sabtu, 12 Desember 2024</p>
+          <p>08:00 - 10:00 WIB</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Lokasi</h3>
+          <p>Gedung Serba Guna</p>
+          <p>Jl. Kemang Raya No.12, Jakarta</p>
+          <button class="map-btn">Lihat Peta</button>
+        </div>
+        <div class="card">
+          <i class="fas fa-gift"></i>
+          <h3>Hadiah</h3>
+          <p>Link e-Gift:</p>
+          <a href="#" class="gift-link">Kirim Hadiah Digital</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery">
+      <h2>Galeri Kami</h2>
+      <div class="gallery-slider">
+        <div class="slider">
+          <div class="slide active" style="background-image: url('images/gallery/1.jpg');"></div>
+          <div class="slide" style="background-image: url('images/gallery/2.jpg');"></div>
+          <div class="slide" style="background-image: url('images/gallery/3.jpg');"></div>
+        </div>
+        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp">
+      <h2>Konfirmasi Kehadiran</h2>
+      <form id="rsvpForm">
+        <div class="form-group">
+          <input type="text" placeholder="Nama Lengkap" required>
+        </div>
+        <div class="form-group">
+          <input type="number" placeholder="Jumlah Orang" min="1" required>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="" disabled selected>Status Kehadiran</option>
+            <option value="hadir">Akan Hadir</option>
+            <option value="tidak">Tidak Bisa Hadir</option>
+          </select>
+        </div>
+        <button type="submit">Kirim Konfirmasi</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Dibuat dengan ❤️ untuk hari istimewa kami</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
